@@ -1,4 +1,4 @@
-package com.devcoder.exampleintentservice;
+package com.devcoder.exampleintentservice.jobs;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +14,7 @@ public class ExampleJobIntentService extends JobIntentService
     private static final String TAG = "ExampleJobIntentService";
 //  private Boolean isStopJob=false;
 
-    static void enqueuework(Context context, Intent intent)
+    public static void enqueuework(Context context, Intent intent)
     {
         enqueueWork( context, ExampleJobIntentService.class, 123, intent );
     }

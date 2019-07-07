@@ -1,8 +1,7 @@
-package com.devcoder.exampleintentservice;
+package com.devcoder.exampleintentservice.services;
 
 import android.app.IntentService;
 import android.app.Notification;
-import android.app.job.JobInfo;
 import android.content.Intent;
 import android.os.Build;
 import android.os.PowerManager;
@@ -11,8 +10,10 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
-import static com.devcoder.exampleintentservice.App.CHANNEL_ID;
-import static com.devcoder.exampleintentservice.ExampleJobIntentService.MYINTENT;
+import com.devcoder.exampleintentservice.R;
+
+import static com.devcoder.exampleintentservice.utils.App.CHANNEL_ID;
+import static com.devcoder.exampleintentservice.jobs.ExampleJobIntentService.MYINTENT;
 
 public class ExampleIntentService extends IntentService
 {

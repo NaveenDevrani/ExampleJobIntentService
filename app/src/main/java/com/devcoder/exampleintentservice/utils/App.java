@@ -1,4 +1,4 @@
-package com.devcoder.exampleintentservice;
+package com.devcoder.exampleintentservice.utils;
 
 import android.app.Application;
 import android.app.NotificationChannel;

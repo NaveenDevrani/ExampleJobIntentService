@@ -1,7 +1,6 @@
-package com.devcoder.exampleintentservice;
+package com.devcoder.exampleintentservice.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.KeyEventDispatcher;
 
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
@@ -14,7 +13,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import static com.devcoder.exampleintentservice.ExampleJobIntentService.MYINTENT;
+import com.devcoder.exampleintentservice.R;
+import com.devcoder.exampleintentservice.jobs.ExampleJobIntentService;
+import com.devcoder.exampleintentservice.jobs.ExampleJobService;
+import com.devcoder.exampleintentservice.services.ExampleIntentService;
+
+import static com.devcoder.exampleintentservice.jobs.ExampleJobIntentService.MYINTENT;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -74,7 +78,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 String text=et_text.getText().toString();
-                Intent intentservice=new Intent( MainActivity.this,ExampleIntentService.class );
+                Intent intentservice=new Intent( MainActivity.this, ExampleIntentService.class );
                 intentservice.putExtra( MYINTENT ,text);
 
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
