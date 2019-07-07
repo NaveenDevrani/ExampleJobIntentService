@@ -35,7 +35,7 @@ public class ExampleJobIntentService extends JobIntentService
             if(isStopped())
                 return;
 
-            Log.d( TAG, "onHandleWork: " );
+            Log.d( TAG, " "+Sinten+ ": "+i );
             SystemClock.sleep( 1000 );
         }
     }
