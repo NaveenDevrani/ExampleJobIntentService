@@ -45,4 +45,9 @@
             android:layout_height="wrap_content"
             android:text="Stop Jobservice"/>
     </LinearLayout>
+    <Button
+        android:id="@+id/btn_intentservice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="start Intentservice"/>
 </LinearLayout>

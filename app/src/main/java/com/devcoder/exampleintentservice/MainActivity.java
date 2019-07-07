@@ -7,17 +7,20 @@ import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import static com.devcoder.exampleintentservice.ExampleJobIntentService.MYINTENT;
+
 public class MainActivity extends AppCompatActivity
 {
 
     private static final String TAG = "MainActivity";
-    Button btn, btn_stop_jobservice, btn_start_jobservice;
+    Button btn, btn_stop_jobservice, btn_start_jobservice,btn_intentservice;
     EditText et_text;
 
     @Override
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity
         btn = findViewById( R.id.btn );
         btn_stop_jobservice = findViewById( R.id.btn_stop_jobservice );
         btn_start_jobservice = findViewById( R.id.btn_start_jobservice );
+        btn_intentservice = findViewById( R.id.btn_intentservice );
         et_text = findViewById( R.id.et_text );
 
 
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity
                     et_text.setError( "Please enter input" );
                 } else {
                     Intent intent = new Intent( MainActivity.this, ExampleJobIntentService.class );
-                    intent.putExtra( ExampleJobIntentService.MYINTENT, text );
+                    intent.putExtra( MYINTENT, text );
 
                     ExampleJobIntentService.enqueuework( MainActivity.this, intent );
                 }
@@ -62,6 +66,20 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 CancelJobScheduler();
+            }
+        } );
+        btn_intentservice.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                String text=et_text.getText().toString();
+                Intent intentservice=new Intent( MainActivity.this,ExampleIntentService.class );
+                intentservice.putExtra( MYINTENT ,text);
+
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    startForegroundService( intentservice );
+                }
             }
         } );
 
